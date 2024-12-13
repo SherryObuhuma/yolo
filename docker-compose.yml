@@ -2,25 +2,25 @@ services:
   client:
     build: ./client
     ports:
-      - "3000:3000"
+      - "3000:3000" # Expose the client on port 3000
     depends_on:
       - backend
 
   backend:
     build: ./backend
     ports:
-      - "5000:5000"
+      - "5000:5000" # Expose the backend on port 5000
     depends_on:
-      - mongo
+      - mongo # Waits for MongoDB to start first
     environment:
-      MONGO_URL: mongodb://mongo:27017/mydatabase
+      MONGO_URL: mongodb://mongo:27017/mydatabase  # MongoDB URI used by the web app
 
   mongo:
-    image: mongo:4.4
+    image: mongo:latest # Use the latest MongoDb image
     ports:
-      - "27017:27017"
+      - "27017:27017" #Expose MongoDB on default port
     volumes:
       - mongo-data:/data/db
 
 volumes:
-  mongo-data:
+  mongo-data: # Named volume for MongoDB data persistence
