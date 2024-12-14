@@ -19,5 +19,6 @@ To run this application locally, you must have the following installed:
 3. Access the application
 4. Verify data persistence
 5. Tag and push the images to Docker Hub
+6. Document all the steps taken in the implementation of the project in the explanation.md file
 
 
