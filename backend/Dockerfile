@@ -1,4 +1,4 @@
-FROM node:14 AS build
+FROM node:16-alpine AS build
 
 WORKDIR /usr/src/app
 
@@ -9,7 +9,7 @@ RUN npm install
 COPY . .
 
 #Add multi-stage build
-FROM alpine:3.16.7
+FROM node:16-alpine
 
 WORKDIR /app
 

@@ -1,4 +1,4 @@
-FROM node:14-slim AS build
+FROM node:16-alpine AS build
 
 WORKDIR /usr/src/app
 
@@ -8,7 +8,8 @@ RUN npm install
 
 COPY . .
 
-FROM alpine:3.16.7
+#Multi-stage build
+FROM node:16-alpine
 
 WORKDIR /app
 
