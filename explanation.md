@@ -9,11 +9,11 @@ The base image used to build the containers for both the frontend and backend of
 For MongoDB database - The base image used is the official 'mongo' image from Dockerhub. 
 
 ## 2. DOCKERFILE DIRECTIVES USED IN THE CREATION & RUNNING OF EACH CONTAINER
-Two Dockerfiles were used in this case for both the frontend(client) and backend. I used a multi-stage build for both backend and frontend dockerfiles to exclude development dependencies and to achieve a smaller image size of below 400mbs.
+Two Dockerfiles were used in this case for both the frontend(client) and backend. I used a multi-stage build for both backend and frontend dockerfiles to exclude development dependencies and to achieve a smaller image size of below 400mbs as shown in the attached imagesize.png screenshot.
 
             ** BACKEND DOCKERFILE
 
-FROM node:14 AS build
+FROM node:16-alpine AS build
 
 WORKDIR /usr/src/app
 
@@ -24,7 +24,7 @@ RUN npm install
 COPY . .
 
 #Add multi-stage build
-FROM alpine:3.16.7
+FROM node:16-alpine
 
 WORKDIR /app
 
@@ -39,7 +39,7 @@ CMD ["node", "server.js"]
 
             ** FRONTEND/CLIENT DOCKERFILE
 
-FROM node:14-slim AS build
+FROM node:16-alpine
 
 WORKDIR /usr/src/app
 
@@ -49,7 +49,7 @@ RUN npm install
 
 COPY . .
 
-FROM alpine:3.16.7
+FROM node:16-alpine
 
 WORKDIR /app
 
@@ -119,6 +119,5 @@ If there were issues with the containers not running correctly, I would:
   1. Check the container status using `docker-compose ps` and ensure all services are up and running.
   
 
-## 7. BEST PRACTICES
-
-I tagged the Docker images to follow Docker's naming convention for ease of identification and tracking.
+## 7. BEST PRACTICE
+Image versioning - I tagged the Docker images to follow Docker's naming convention for ease of identification and tracking.
