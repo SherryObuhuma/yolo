@@ -9,7 +9,7 @@ The base image used to build the containers for both the frontend and backend of
 For MongoDB database - The base image used is the official 'mongo' image from Dockerhub. 
 
 ## 2. DOCKERFILE DIRECTIVES USED IN THE CREATION & RUNNING OF EACH CONTAINER
-Two Dockerfiles were used in this case for both the frontend(client) and backend.
+Two Dockerfiles were used in this case for both the frontend(client) and backend. I used a multi-stage build for both backend and frontend dockerfiles to exclude development dependencies and to achieve a smaller image size of below 400mbs.
 
             ** BACKEND DOCKERFILE
 
