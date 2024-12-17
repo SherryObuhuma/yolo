@@ -12,13 +12,29 @@ This project involves the containerization and deployment of a full-stack yolo a
 To run this application locally, you must have the following installed:
 - Docker
 - Git
+- npm
+- MongoDB
 
 ## Setup Instructions
-1. Clone the repository
-2. Build and run the containers
-3. Access the application
-4. Verify data persistence
-5. Tag and push the images to Docker Hub
-6. Document all the steps taken in the implementation of the project in the explanation.md file
+- Clone the repository to your local machine
+- Navigate to the root directory of your cloned repository 
+    'cd yolo'
+- Launch the application using the docker compose command
+    'docker compose up'
+- Run the following command to install dependencies
+    'npm install'
+- Run the following command to start the client application on your browser
+    'npm start'
+- Access the client side of the application using the following URL:
+    'http://localhost:3000/
+- Go ahead and add a product
+- Run the following command to start the backend application on you browser
+    'node server.js'
+- Access the backend of the application using the following URL:
+    'http://localhost:5000/
+- Terminate the application completely by using the docker compose command
+    'docker compose down'
+
+## More detailed steps taken in the implementation of this project are further explained in the explanation.md file
 
 
