@@ -120,4 +120,6 @@ If there were issues with the containers not running correctly, I would:
   
 
 ## 7. BEST PRACTICE
-Image versioning - I tagged the Docker images to follow Docker's naming convention for ease of identification and tracking.
+Image versioning - I tagged the Docker images to follow Docker's naming convention for ease of identification and tracking as shown below:
+![alt text](ImageVersioning1.png)
+
