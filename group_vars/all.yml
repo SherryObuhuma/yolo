@@ -1,0 +1,5 @@
+repo_url: "https://github.com/SherryObuhuma/yolo.git"
+app_dir: "/home/vagrant/yolo"
+frontend_port: 3000
+backend_port: 5000
+db_port: 27017
