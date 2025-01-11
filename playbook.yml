@@ -1,0 +1,12 @@
+---
+- name: Provision E-commerce Application
+  hosts: vagrant
+  become: yes
+
+  vars_files:
+    - group_vars/all.yml
+
+  roles:
+    - frontend
+    - backend
+    - database
