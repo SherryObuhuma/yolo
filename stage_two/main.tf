@@ -16,6 +16,11 @@ resource "vagrant_vm" "devops_vm" {
       "sudo apt install -y python3 python3-pip"
     ]
   }
+
+  provisioner "local-exec" {
+  command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i '${self.network[0].ip},' /home/Assignments/yolo/stage_two/ansible/deploy.yml -u vagrant --private-key ~/.vagrant.d/insecure_private_key"
+}
+
 }
 
 output "vm_ip" {
