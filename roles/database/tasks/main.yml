@@ -8,7 +8,7 @@
     volumes:
       - ./app-mongo-data:/data/db
     networks:
-      - name: yolo-network
+      - name: app-net
   tags:
     - database
     - backend
