@@ -20,7 +20,7 @@
     command: npm start
     working_dir: "/usr/src/app"
     volumes:
-      - "/home/vagrant/yolo/roles/frontend:/usr/src/app"
+      - "/home/Assignments/yolo/roles/frontend:/usr/src/app"
     ports:
       - "3000:3000"
 
