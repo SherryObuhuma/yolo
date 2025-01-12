@@ -18,9 +18,9 @@
     state: started
     restart_policy: always
     command: npm start
-    working_dir: "yolo/roles/frontend"
+    working_dir: "/usr/src/app"
     volumes:
-      - "yolo/roles/frontend:/app"
+      - "/home/vagrant/yolo/roles/frontend:/usr/src/app"
     ports:
       - "3000:3000"
 
