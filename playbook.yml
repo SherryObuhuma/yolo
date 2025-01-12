@@ -43,3 +43,15 @@
           - "/home/Assignments/roles/frontend:/usr/src/app"
         working_dir: /usr/src/app
         command: npm start
+        
+    - name: Run backend container
+      docker_container:
+        name: yolo-backend-1
+        image: sherryobuhuma/yolo-backend:v1.2.0
+        state: started
+        restart_policy: always
+        networks:
+          - name: app-net
+        ports:
+          - "5000:5000"
+        command: npm start
