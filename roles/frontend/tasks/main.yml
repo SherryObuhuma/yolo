@@ -9,7 +9,7 @@
   git:
     repo: "https://github.com/SherryObuhuma/yolo"
     dest: "yolo/roles"
-    version: "main"
+    version: "master"
 
 - name: Run frontend container
   docker_container:
