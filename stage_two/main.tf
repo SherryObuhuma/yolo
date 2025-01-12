@@ -1,43 +1,33 @@
 terraform {
   required_providers {
-    vagrant = {
-      source = "bmatcuk/vagrant"
-      version = ">= 4.0.0"
-    }
     virtualbox = {
-      source = "terra-farm/virtualbox" 
+      source  = "terra-farm/virtualbox"
       version = "0.2.2-alpha.1"
     }
   }
 }
 
-provider "vagrant" {}
-
 provider "virtualbox" {}
 
-resource "vagrant_vm" "devops_vm" {
-  name   = "devops-vm"
-  box    = "geerlingguy/ubuntu2004"
-  memory = 2048
-  cpus   = 2
-  network {
-    type   = "private_network"
-    ip     = "192.168.56.20"
+resource "null_resource" "vagrant_vm" {
+  provisioner "local-exec" {
+    command = <<EOT
+      vagrant init geerlingguy/ubuntu2004
+      vagrant up
+    EOT
   }
 
   provisioner "remote-exec" {
+  connection {
+      type        = "ssh"
+      user        = "vagrant"
+      private_key = file("~/.vagrant.d/insecure_private_key")
+      host        = "192.168.56.20"
+    }
+    
     inline = [
       "sudo apt update -y",
       "sudo apt install -y python3 python3-pip"
     ]
   }
-
-  provisioner "local-exec" {
-  command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i '${self.network[0].ip},' /home/Assignments/yolo/stage_two/ansible/deploy.yml -u vagrant --private-key ~/.vagrant.d/insecure_private_key"
-}
-
-}
-
-output "vm_ip" {
-  value = "192.168.56.20"
 }
