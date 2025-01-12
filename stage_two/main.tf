@@ -1,3 +1,18 @@
+terraform {
+  required_providers {
+    vagrant = {
+      source = "bmatcuk/vagrant"
+      version = ">= 4.0.0"
+    }
+    virtualbox = {
+      source = "terra-farm/virtualbox" 
+      version = "0.2.2-alpha.1"
+    }
+  }
+}
+
+provider "vagrant" {}
+
 provider "virtualbox" {}
 
 resource "vagrant_vm" "devops_vm" {
