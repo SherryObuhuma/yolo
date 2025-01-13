@@ -1,14 +1,14 @@
-# E-commerce Automation with Ansible and Terraform
+# Automation of Yolo Application (An E-commerce platform) with Ansible and Terraform
 
 ## Project Overview
-This project automates the deployment of a containerized e-commerce platform using Ansible and Terraform. It provisions infrastructure and deploys the application with a single command.
+This project automates the deployment of a containerized e-commerce platform that is Yolo application using Ansible and Terraform. It provisions infrastructure and deploys the application with a single command.
 
 ## Prerequisites
 - [Vagrant](https://www.vagrantup.com/downloads)
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - [Terraform](https://developer.hashicorp.com/terraform/downloads)
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-- Git
+- [Git](https://git-scm.com/downloads)
 
 ## Installation and Deployment
 
@@ -36,7 +36,7 @@ http://192.168.56.10:3000
 
 ## Stage 2: Terraform and Ansible Integration
 
-1. Navigate to the Stage_two branch and stage_two folder:
+1. Navigate to the Stage_two branch:
 ```bash
 cd stage_two
 terraform init
