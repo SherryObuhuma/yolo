@@ -1,16 +1,22 @@
-# Use a Node.js base image
-FROM node:16
+FROM node:16-alpine AS build
 
-# Set working directory
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Copy package.json and install dependencies
-COPY package.json .
+COPY package*.json ./
+
 RUN npm install
 
-# Copy application code
 COPY . .
 
-# Expose port and start the app
-EXPOSE 4000
-CMD ["npm", "start"]
+#Add multi-stage build
+FROM node:16-alpine
+
+WORKDIR /app
+
+RUN apk update && apk add --update nodejs
+
+COPY --from=build /usr/src/app /app
+
+EXPOSE 5000
+
+CMD ["node", "server.js"]
