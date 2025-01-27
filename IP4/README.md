@@ -9,3 +9,7 @@ This project demonstrates a distributed e-commerce system deployed on Google Kub
 3. Apply Kubernetes manifests:
    ```bash
    kubectl apply -f manifests/
+4. Access the application via the frontend LoadBalancer IP
+   ```bash
+   http://34.60.162.244
+   
