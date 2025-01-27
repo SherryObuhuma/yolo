@@ -6,7 +6,8 @@ spec:
   capacity:
     storage: 10Gi
   accessModes:
-    - ReadOnlyMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: /data/db
+  gcePersistentDisk:
+    pdName: my-disk
+    fsType: ext4
